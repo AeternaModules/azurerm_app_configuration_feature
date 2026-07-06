@@ -12,6 +12,14 @@ resource "azurerm_app_configuration_feature" "app_configuration_features" {
   percentage_filter_value = each.value.percentage_filter_value
   tags                    = each.value.tags
 
+  dynamic "custom_filter" {
+    for_each = each.value.custom_filter != null ? [each.value.custom_filter] : []
+    content {
+      name       = custom_filter.value.name
+      parameters = custom_filter.value.parameters
+    }
+  }
+
   dynamic "targeting_filter" {
     for_each = each.value.targeting_filter != null ? [each.value.targeting_filter] : []
     content {

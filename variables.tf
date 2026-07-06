@@ -13,6 +13,9 @@ Optional:
     - locked
     - percentage_filter_value
     - tags
+    - custom_filter (block):
+        - name (required)
+        - parameters (optional)
     - targeting_filter (block):
         - default_rollout_percentage (required)
         - groups (optional, block):
@@ -35,6 +38,10 @@ EOT
     locked                  = optional(bool) # Default: false
     percentage_filter_value = optional(number)
     tags                    = optional(map(string))
+    custom_filter = optional(object({
+      name       = string
+      parameters = optional(map(string))
+    }))
     targeting_filter = optional(object({
       default_rollout_percentage = number
       groups = optional(object({
