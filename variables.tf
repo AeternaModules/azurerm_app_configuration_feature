@@ -38,22 +38,22 @@ EOT
     locked                  = optional(bool) # Default: false
     percentage_filter_value = optional(number)
     tags                    = optional(map(string))
-    custom_filter = optional(object({
+    custom_filter = optional(list(object({
       name       = string
       parameters = optional(map(string))
-    }))
-    targeting_filter = optional(object({
+    })))
+    targeting_filter = optional(list(object({
       default_rollout_percentage = number
-      groups = optional(object({
+      groups = optional(list(object({
         name               = string
         rollout_percentage = number
-      }))
+      })))
       users = optional(list(string))
-    }))
-    timewindow_filter = optional(object({
+    })))
+    timewindow_filter = optional(list(object({
       end   = optional(string)
       start = optional(string)
-    }))
+    })))
   }))
 }
 
