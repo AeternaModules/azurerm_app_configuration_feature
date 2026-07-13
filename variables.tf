@@ -35,7 +35,7 @@ EOT
     etag                    = optional(string)
     key                     = optional(string)
     label                   = optional(string)
-    locked                  = optional(bool) # Default: false
+    locked                  = optional(bool)
     percentage_filter_value = optional(number)
     tags                    = optional(map(string))
     custom_filter = optional(list(object({
